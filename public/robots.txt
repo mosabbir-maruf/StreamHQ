@@ -1,0 +1,92 @@
+# StreamHQ - Secure Robots.txt Configuration
+# Optimized for security and performance
+
+# Allow all search engines to crawl main content
+User-agent: *
+Allow: /
+Allow: /discover
+Allow: /search
+Allow: /aboutandfaq
+Allow: /privacy
+Allow: /contact
+Allow: /movie-request
+
+# Block sensitive and private areas
+Disallow: /api/
+Disallow: /auth/
+Disallow: /library/
+Disallow: /movie/*/player/
+Disallow: /tv/*/player/
+Disallow: /anime/*/player/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /user/
+Disallow: /profile/
+Disallow: /settings/
+Disallow: /account/
+
+# Block common security-sensitive paths
+Disallow: /api/auth/
+Disallow: /api/player/save-history/
+Disallow: /api/contact/
+Disallow: /api/movie-request/
+Disallow: /supabase/
+Disallow: /migrations/
+Disallow: /schemas/
+Disallow: /templates/
+
+# Block file extensions that shouldn't be indexed
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /*.txt$
+Disallow: /*.log$
+Disallow: /*.env$
+Disallow: /*.config$
+Disallow: /*.sql$
+
+# Block query parameters and tracking
+Disallow: /*?*
+Disallow: /*&*
+Disallow: /*utm_*
+Disallow: /*ref=*
+Disallow: /*source=*
+
+# Specific bot restrictions for security
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# Allow Google and Bing (main search engines)
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /auth/
+Disallow: /library/
+Disallow: /*/player/
+Disallow: /_next/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /auth/
+Disallow: /library/
+Disallow: /*/player/
+Disallow: /_next/
+
+# Crawl delay for better server performance
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://streamhq.vercel.app/sitemap.xml
